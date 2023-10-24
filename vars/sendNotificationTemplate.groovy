@@ -24,6 +24,6 @@ def call(Map config = [:]) {
 
    emailext subject: "${config.message}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
     body: emailBody,
-    receiver: "${config.receiver}",  
-    sender: "${config.sender}"
+    to: "${config.receiver}",  
+    from: "${config.sender}"
 }
