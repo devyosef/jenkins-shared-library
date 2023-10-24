@@ -15,10 +15,15 @@ def call(Map config = [:]) {
   def emailBody = renderTemplate(tempName,inputs)
 
   // send to email
-  emailext (
+  /*emailext (
     subject: "${config.message}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
     body: emailBody,
     receiver: "${config.receiver}",  
     sender: "${config.sender}"
-  )
+  )*/
+
+   emailext subject: "${config.message}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+    body: emailBody,
+    receiver: "${config.receiver}",  
+    sender: "${config.sender}"
 }
